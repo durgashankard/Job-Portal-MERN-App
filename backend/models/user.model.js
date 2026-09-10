@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    fullName: {
-        type:String,
+    fullname: {
+        type: String,
         required: true,
     },
     email: {
         type: String,
         required: true,
-        unique:true,
+        unique: true,
     },
     phoneNumber: {
         type: Number,
@@ -16,12 +16,12 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required:true
+        required: true
     },
     role: {
         type: String,
         enum: ["student", "recruiter"],
-        required:true,
+        required: true,
     },
     profile: {
         bio: { type: String },
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
         company: { type: mongoose.Schema.Types.ObjectId, ref: "company" },
         profilePhoto: {
             type: String,
-            default:""
+            default: ""
         }
     }
 }, { timestamps: true })
