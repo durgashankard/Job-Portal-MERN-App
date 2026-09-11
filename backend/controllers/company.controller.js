@@ -8,7 +8,7 @@ export const registerCompany = async (req, res) => {
         if (!companyName) {
             return res.status(400).json({
                 message: "Company name is required.",
-                success: false
+                success: false,
             })
         }
 
@@ -17,7 +17,7 @@ export const registerCompany = async (req, res) => {
         if (company) {
             return res.status(400).json({
                 message: "you can't register same company",
-                success: false
+                success: false,
             })
         }
 
@@ -50,6 +50,11 @@ export const getCompany = async (req, res) => {
                 success: false,
             })
         }
+
+        return res.status(200).json({
+            companies,
+            success: true,
+        });
 
     } catch (error) {
         console.log(error);
@@ -95,7 +100,7 @@ export const updateCompany = async (req, res) => {
         if (!company) {
             return res.status(404).json({
                 message: "company Not found",
-                success:false,
+                success: false,
             })
         }
 
